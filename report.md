@@ -103,6 +103,10 @@ is embedded below (Appendix A).
 
 # 3. Study and Results
 
+I conducted this experiment with some students in the Laboratory for Playful
+Computation and with acquaintances from previous jobs. The size of the data set
+is five responses.
+
 # 4. Analysis and Discussion
 
 \includepdf[pages=1, pagecommand={\section{Appendix A}}]{./assets/gform_out.pdf}
