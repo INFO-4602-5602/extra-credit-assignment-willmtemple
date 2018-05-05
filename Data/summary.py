@@ -62,7 +62,7 @@ def process(data):
         
     return [
         {
-            k : fix(d,k)
+            k : d['coordinate'][k] - d['overlay'][k]
             for k in ['meanx', 'meany', 'stdx', 'stdy']
         }
         for d in data
@@ -78,8 +78,10 @@ if __name__ == '__main__':
         for line in r:
             d = np.array([float(x) for x in line[1:]])
             # E = (estimate - actual)
-            error = np.absolute(np.divide(np.subtract(d, _ANSWERS), _ANSWERS))
+            error = np.absolute(np.subtract(d, _ANSWERS))
             DATA.append(describe(error))
+
+    print([d['overlay']['meanx'] for d in DATA])
 
     ind = np.arange(4)
     labels = ['meanx', 'meany', 'stdx', 'stdy']
@@ -88,7 +90,7 @@ if __name__ == '__main__':
     pprint(DATA)
     print()
     pprint(process(DATA))
-    data = [sum([d[k] for d in process(DATA)])/5 for k in labels]
+    data = [sum([d[k] for d in process(DATA)])/6 for k in labels]
     print()
     pprint(data)
 
@@ -96,7 +98,7 @@ if __name__ == '__main__':
 
     r1 = ax.bar(ind, data, color='blue', tick_label=ticks)
 
-    ax.set_ylabel('Average Error')
+    ax.set_ylabel('Error (Coordinate) - Error (Overlay)')
     ax.set_title('Comparison of Error by Plot Type')
     ax.axhline(y=0, color="black")
     plt.show()

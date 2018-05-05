@@ -86,7 +86,7 @@ variables to ensure consistency in other aspects of data presentation:
 
 Due to the small study population I anticipate ($5 < N < 10$), any statistical
 significance is unlikely to emerge. However, I will report the participants'
-average estimation errors and compute a confidence inteveral for the estimation
+average estimation errors and compute a confidence interval for the estimation
 error values for each visualization type. I will explain, qualitatively, how
 the data do or do not support my hypothesis and whether or not they justify
 further experimentation.
@@ -98,16 +98,73 @@ data collection. I wrote a Python program (using matplotlib, numpy, and scipy)
 to generate figures (like Figure \ref{f1} and \ref{f2}), and embedded them into
 the online survey. Each question asks the participant to estimate the mean and
 standard-deviation of both the X and Y components of the distribution. The
-questions only accept numbers within the inverval $[0,1]$. The full survey text
+questions only accept numbers within the interval $[0,1]$. The full survey text
 is embedded below (Appendix A).
 
 # 3. Study and Results
 
-I conducted this experiment with some students in the Laboratory for Playful
-Computation and with acquaintances from previous jobs. The size of the data set
-is five responses.
+I recruited six participants from among friends, former colleagues, and members
+of the Laboratory for Playful Computation. No knowledge of statistics was
+required to participate. I averaged the distance between the participants'
+responses and the actual answers, and compared the average error when
+participants were presented with the coordinated plots to the same when
+participants were presented with the image plot.
+
+![Average error difference in plot types\label{f3}](./fig3.png){width=4.5in}
+
+The graph shows the average difference (Figure \ref{f3}). Values below zero indicate that the
+image plots performed better and values above zero indicate that the
+coordinated plots performed better.
+
+The data immediately restrict my hypothesis: in the small sample of
+participants who generated this data, the image plot was associated with more
+accurate estimations for the X distribution standard-deviation ($\sigma_{x}$)
+and Y standard-deviation ($\sigma_{y}$).
 
 # 4. Analysis and Discussion
+
+The first, most obvious conclusion to draw from these data are that far more
+data are required to make any accurate statements regarding my hypothesis. With
+only six participants, each making estimations regarding three of each plot
+type, the total number of samples is only 18 for each plot type. As such, I've
+chosen to focus on a qualitative discussion of the results and offer some
+suggestions about what effects could possibly influence these results.
+
+## Estimating Standard-Deviation
+
+I found that participants consider the standard-deviation difficult to
+estimate.  While recorded estimates for mean-values exhibited little variance
+($\sigma < 0.05$), estimates for standard-deviation exhibited much higher
+variance ($\sigma > 0.1$ for some questions). One participant even remarked
+that the questions are "evil" and resorted to using a makeshift straightedge (a
+_Post-it_ Note) to align the mean and estimate the standard deviation from
+there.
+
+I acknowledge that this task is probably too difficult to make accurate
+predictions about how the graph type affects one's ability to estimate
+standard-deviation (as estimations have high variance _regardless_ of plot
+type). It may have been useful or instructive to provide some examples which
+show the standard-deviation of some sample distributions. I chose not to do
+this in this experiment because I was worried that such instruction for each
+chart type would make the estimations too accurate. However, I think that
+estimations which are too accurate would be more useful than these, which are
+too inaccurate and too highly varied.
+
+## Estimating the Mean
+
+Participants were more easily able (though certainly not _significantly_) to
+estimate an accurate mean for distributions when the distributions were
+presented in two separate subplots. One participant remarked that this task was
+easy in this case, because the mean of the distribution is obviously the single
+modal peak. It may be more interesting to consider these tasks with multi-modal
+distributions, though this risks elevating the difficulty beyond reasonable
+levels.
+
+In summary, I do not confirm my hypothesis and, broadly speaking, require much
+more data to conduct a convincing analysis. Due to the rote nature of task
+performance for this experiment, it may be a good candidate for Mechanical Turk
+or other similar services.
+
 
 \includepdf[pages=1, pagecommand={\section{Appendix A}}]{./assets/gform_out.pdf}
 \includepdf[pages=2-, pagecommand={}]{./assets/gform_out.pdf}
